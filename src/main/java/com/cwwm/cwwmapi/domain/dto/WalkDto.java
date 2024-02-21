@@ -1,0 +1,27 @@
+package com.cwwm.cwwmapi.domain.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class WalkDto {
+
+    private Long id;
+
+    private String walkName;
+
+    private String walkStart;
+
+    private String walkEnd;
+
+    private String userId;
+
+    private Double rating;
+
+
+}
