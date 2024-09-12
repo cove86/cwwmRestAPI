@@ -15,9 +15,13 @@ public class RestaurantDto {
 
     private String restaurantName;
 
-    private String userId;
+    private String location;
+
+    private String description;
 
     private Double rating;
 
-    private Long walkId;
+    private Long addedBy;
+
+    private String createdAt;
 }

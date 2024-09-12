@@ -20,4 +20,10 @@ public class AppUserEntity {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false, unique = true)
+    private String userName;
+
+    @Column
+    private String createdAt;
+
 }

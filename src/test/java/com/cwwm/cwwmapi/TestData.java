@@ -14,55 +14,62 @@ public final class TestData {
     public static WalkEntity createWalkEntityA() {
         return WalkEntity.builder()
                 .id(1L)
-                .walkName("TestA")
-                .walkStart("TestStartA")
-                .walkEnd("TestEndA")
+                .walkStartLocation("TestStartA")
+                .walkEndLocation("TestEndA")
+                .duration("2hrs")
+                .routeMap("TestRoute")
                 .rating(3.0)
-                .userId("TESTA")
+                .userId(1234L)
+                .createdAt("Today")
                 .build();
     }
 
-    public static WalkEntity createWalkEntityForRestaurantA() {
-        return WalkEntity.builder()
-                .id(1L)
-                .walkName("TestARestaurant")
-                .walkStart("TestStartARestaurant")
-                .walkEnd("TestEndARestuarant")
-                .rating(3.0)
-                .userId("TESTARestaurant")
-                .build();
-    }
+//    public static WalkEntity createWalkEntityForRestaurantA() {
+//        return WalkEntity.builder()
+//                .id(1L)
+//                .walkName("TestARestaurant")
+//                .walkStart("TestStartARestaurant")
+//                .walkEnd("TestEndARestuarant")
+//                .rating(3.0)
+//                .userId("TESTARestaurant")
+//                .build();
+//    }
 
     public static WalkDto createWalkDtoA() {
         return WalkDto.builder()
                 .id(1L)
-                .walkName("TestA")
-                .walkStart("TestStartA")
-                .walkEnd("TestEndA")
+                .walkStartLocation("TestStartA")
+                .walkEndLocation("TestEndA")
+                .duration("2hrs")
+                .routeMap("TestRoute")
                 .rating(3.0)
-                .userId("TESTA")
+                .userId(1234L)
+                .createdAt("Today")
                 .build();
     }
 
     public static WalkDto createWalkDtoRestaurantA() {
         return WalkDto.builder()
                 .id(1L)
-                .walkName("TestRestaurantA")
-                .walkStart("TestStartA")
-                .walkEnd("TestEndA")
+                .walkStartLocation("TestStartA")
+                .walkEndLocation("TestEndA")
+                .duration("2hrs")
+                .routeMap("TestRoute")
                 .rating(3.0)
-                .userId("TESTA")
+                .userId(1234L)
+                .createdAt("Today")
                 .build();
     }
 
     public static RestaurantEntity createRestaurantEntityA() {
-                WalkEntity walkEntity = createWalkEntityForRestaurantA();
         return RestaurantEntity.builder()
                 .id(1L)
                 .restaurantName("TestA")
+                .location("TestLocation")
+                .description("Test Description")
                 .rating(3.0)
-                .userId("TESTA")
-                .walkId(12345L)
+                .addedBy(123L)
+                .createdAt("Today")
                 .build();
     }
 
@@ -71,9 +78,11 @@ public final class TestData {
         return RestaurantDto.builder()
                 .id(1L)
                 .restaurantName("TestA")
+                .location("TestLocation")
+                .description("Test Description")
                 .rating(3.0)
-                .userId("TESTA")
-                .walkId(12345L)
+                .addedBy(123L)
+                .createdAt("Today")
                 .build();
     }
 }

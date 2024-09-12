@@ -23,13 +23,19 @@ public class RestaurantEntity {
 
     private String restaurantName;
 
-    private String userId;
+    private String location;
+
+    private String description;
 
     private Double rating;
+
+    private Long addedBy;
+
+    private String createdAt;
 
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "walk_id")
 //    private WalkEntity walkEntity;
-    private Long walkId;
+//    private Long walkId;
 
 }

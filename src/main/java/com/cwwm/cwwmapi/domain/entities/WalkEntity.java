@@ -18,14 +18,18 @@ public class WalkEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String walkName;
+    private Long userId;
 
-    private String walkStart;
+    private String walkStartLocation;
 
-    private String walkEnd;
+    private String walkEndLocation;
 
-    private String userId;
+    private String duration;
+
+    private String routeMap;
 
     private Double rating;
+
+    private String createdAt;
 
 }

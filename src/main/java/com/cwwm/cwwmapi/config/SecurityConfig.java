@@ -14,8 +14,7 @@
 //    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 //        http
 //                .authorizeHttpRequests(request -> request
-//                        .requestMatchers("/restaurants/**")
-//                         .requestMatchers("/walks/**")
+//                        .requestMatchers("/api/**")
 //                        .authenticated())
 //                .httpBasic(Customizer.withDefaults())
 //                .csrf(csrf -> csrf.disable());

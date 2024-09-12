@@ -69,8 +69,10 @@ public class RestaurantControllerTest {
                 MockMvcResultMatchers.jsonPath("$.id").isNumber()
         ).andExpect(MockMvcResultMatchers.jsonPath("$.restaurantName").value("TestA")
         ).andExpect(MockMvcResultMatchers.jsonPath("$.rating").value(3.0)
-        ).andExpect(MockMvcResultMatchers.jsonPath("$.userId").value("TESTA")
-        ).andExpect(MockMvcResultMatchers.jsonPath("$.walkId").isNumber())
+        ).andExpect(MockMvcResultMatchers.jsonPath("$.location").value("TestLocation"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.description").value("Test Description"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.addedBy").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").value("Today"))
         ;
     }
 
@@ -96,7 +98,7 @@ public class RestaurantControllerTest {
                 MockMvcResultMatchers.jsonPath("$[0].id").isNumber()
         ).andExpect(MockMvcResultMatchers.jsonPath("$[0].restaurantName").value("TestA")
         ).andExpect(MockMvcResultMatchers.jsonPath("$[0].rating").value(3.0)
-        ).andExpect(MockMvcResultMatchers.jsonPath("$[0].userId").value("TESTA"))
+        ).andExpect(MockMvcResultMatchers.jsonPath("$[0].addedBy").value(123L))
         ;
 
     }

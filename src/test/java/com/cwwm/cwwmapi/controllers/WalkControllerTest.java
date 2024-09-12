@@ -68,12 +68,13 @@ public class WalkControllerTest {
                             .content(walkJson)
             ).andExpect(
                     MockMvcResultMatchers.jsonPath("$.id").isNumber()
-            ).andExpect(MockMvcResultMatchers.jsonPath("$.walkName").value("TestA")
-            ).andExpect(MockMvcResultMatchers.jsonPath("$.walkStart").value("TestStartA")
-            ).andExpect(MockMvcResultMatchers.jsonPath("$.walkEnd").value("TestEndA")
+            ).andExpect(MockMvcResultMatchers.jsonPath("$.walkStartLocation").value("TestStartA")
+            ).andExpect(MockMvcResultMatchers.jsonPath("$.walkEndLocation").value("TestEndA")
             ).andExpect(MockMvcResultMatchers.jsonPath("$.rating").value(3.0)
-            ).andExpect(MockMvcResultMatchers.jsonPath("$.userId").value("TESTA")
-            );
+            ).andExpect(MockMvcResultMatchers.jsonPath("$.userId").value(1234)
+            ).andExpect(MockMvcResultMatchers.jsonPath("$.duration").value("2hrs"))
+                    .andExpect(MockMvcResultMatchers.jsonPath("$.routeMap").value("TestRoute"))
+                    .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").value("Today"));
 
     }
 
@@ -96,13 +97,14 @@ public class WalkControllerTest {
                 MockMvcRequestBuilders.get("/api/v1/walks")
                         .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].id").isNumber()
-        ).andExpect(MockMvcResultMatchers.jsonPath("$[0].walkName").value("TestA")
-        ).andExpect(MockMvcResultMatchers.jsonPath("$[0].walkStart").value("TestStartA")
-        ).andExpect(MockMvcResultMatchers.jsonPath("$[0].walkEnd").value("TestEndA")
-        ).andExpect(MockMvcResultMatchers.jsonPath("$[0].rating").value(3.0)
-        ).andExpect(MockMvcResultMatchers.jsonPath("$[0].userId").value("TESTA")
-        );
+                        MockMvcResultMatchers.jsonPath("$.[0].id").isNumber()
+                ).andExpect(MockMvcResultMatchers.jsonPath("$.[0].walkStartLocation").value("TestStartA")
+                ).andExpect(MockMvcResultMatchers.jsonPath("$.[0].walkEndLocation").value("TestEndA")
+                ).andExpect(MockMvcResultMatchers.jsonPath("$.[0].rating").value(3.0)
+                ).andExpect(MockMvcResultMatchers.jsonPath("$.[0].userId").value(1234)
+                ).andExpect(MockMvcResultMatchers.jsonPath("$.[0].duration").value("2hrs"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].routeMap").value("TestRoute"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].createdAt").value("Today"));
     }
 
 
