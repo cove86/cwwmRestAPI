@@ -58,7 +58,6 @@ public class RestaurantControllerTest {
     @Test
     public void testThatCreateRestaurantSuccessfullyReturnsSavedRestaurant() throws Exception {
         RestaurantDto testRestaurantDtoA = TestData.createRestaurantDtoA();
-        WalkDto createWalkDtoRestaurantA = TestData.createWalkDtoRestaurantA();
         String walkJson = objectMapper.writeValueAsString(testRestaurantDtoA);
 
         mockMvc.perform(
@@ -99,7 +98,9 @@ public class RestaurantControllerTest {
         ).andExpect(MockMvcResultMatchers.jsonPath("$[0].restaurantName").value("TestA")
         ).andExpect(MockMvcResultMatchers.jsonPath("$[0].rating").value(3.0)
         ).andExpect(MockMvcResultMatchers.jsonPath("$[0].addedBy").value(123L))
-        ;
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].location").value("TestLocation"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].description").value("Test Description"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].createdAt").value("Today"));
 
     }
 }

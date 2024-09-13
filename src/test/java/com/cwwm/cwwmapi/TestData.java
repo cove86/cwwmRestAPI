@@ -24,31 +24,7 @@ public final class TestData {
                 .build();
     }
 
-//    public static WalkEntity createWalkEntityForRestaurantA() {
-//        return WalkEntity.builder()
-//                .id(1L)
-//                .walkName("TestARestaurant")
-//                .walkStart("TestStartARestaurant")
-//                .walkEnd("TestEndARestuarant")
-//                .rating(3.0)
-//                .userId("TESTARestaurant")
-//                .build();
-//    }
-
     public static WalkDto createWalkDtoA() {
-        return WalkDto.builder()
-                .id(1L)
-                .walkStartLocation("TestStartA")
-                .walkEndLocation("TestEndA")
-                .duration("2hrs")
-                .routeMap("TestRoute")
-                .rating(3.0)
-                .userId(1234L)
-                .createdAt("Today")
-                .build();
-    }
-
-    public static WalkDto createWalkDtoRestaurantA() {
         return WalkDto.builder()
                 .id(1L)
                 .walkStartLocation("TestStartA")
@@ -74,7 +50,6 @@ public final class TestData {
     }
 
     public static RestaurantDto createRestaurantDtoA() {
-                WalkDto walkDto = createWalkDtoRestaurantA();
         return RestaurantDto.builder()
                 .id(1L)
                 .restaurantName("TestA")
