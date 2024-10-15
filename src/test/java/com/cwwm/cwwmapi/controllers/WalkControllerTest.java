@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
@@ -40,6 +41,7 @@ public class WalkControllerTest {
     }
 
     @Test
+    @WithMockUser(roles="USER")
     public void testThatCreateWalkSuccessfullyReturnsHttp201() throws Exception {
         WalkEntity testWalkA = TestData.createWalkEntityA();
         testWalkA.setId(null);
@@ -57,6 +59,7 @@ public class WalkControllerTest {
 
 
         @Test
+        @WithMockUser(roles="USER")
         public void testThatCreateWalkSuccessfullyReturnsSavedWalk() throws Exception {
             WalkDto testWalkDtoA = TestData.createWalkDtoA();
             testWalkDtoA.setId(null);
@@ -79,6 +82,7 @@ public class WalkControllerTest {
     }
 
     @Test
+    @WithMockUser(roles="USER")
     public void testThatGetWalksSuccessfullyReturnsHttpStatus200() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/api/v1/walks")
@@ -89,6 +93,7 @@ public class WalkControllerTest {
     }
 
     @Test
+    @WithMockUser(roles="USER")
     public void testThatGetWalksSuccessfullyReturnsListOfWalks() throws Exception {
         WalkEntity walkEntity = TestData.createWalkEntityA();
         walksService.save(walkEntity);

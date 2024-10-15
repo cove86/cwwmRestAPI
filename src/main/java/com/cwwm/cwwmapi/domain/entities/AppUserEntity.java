@@ -26,4 +26,6 @@ public class AppUserEntity {
     @Column
     private String createdAt;
 
+
+
 }
