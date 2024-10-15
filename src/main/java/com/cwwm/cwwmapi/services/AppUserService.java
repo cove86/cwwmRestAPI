@@ -1,28 +1,22 @@
 package com.cwwm.cwwmapi.services;
 
 import com.cwwm.cwwmapi.domain.entities.AppUserEntity;
-import com.cwwm.cwwmapi.domain.entities.AppUserPrincipal;
 import com.cwwm.cwwmapi.repositories.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.parameters.P;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AppUserService implements UserDetailsService {
+public class AppUserService {
 
     @Autowired
     private AppUserRepository appUserRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUserEntity appUser = appUserRepository.findByUserName(username);
-        if(appUser == null) {
-            System.out.println("User Not Found");
-            throw new UsernameNotFoundException("user Not Found");
-        }
+    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
 
-        return new AppUserPrincipal(appUser);
+    public AppUserEntity register(AppUserEntity appUser){
+        appUser.setPassword(bCryptPasswordEncoder.encode(appUser.getPassword()));
+        return appUserRepository.save(appUser);
     }
 }
